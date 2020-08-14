@@ -1,35 +1,35 @@
 const object = {
-  'rooms': [
+  rooms: [
     {
-      'Billiards Room':{
-        'clueFound': true
-       }
+      'Billiards Room': {
+        clueFound: true
+      }
     }
   ]
-}
+};
 
 const test1 = {
-  player:"Anne",
-  suspects:[
+  player: 'Anne',
+  suspects: [
     {
-    name:'Mrs.White'
+      name: 'Mrs.White'
     },
     {
-    name:'Prof Plum'
+      name: 'Prof Plum'
     },
     {
-    name:'Mrs.peacock'
+      name: 'Mrs.peacock'
     }
   ]
-}
+};
 
 const _ = {};
 
-_.get = (object,path,defaultValue) => {
+_.get = (object, path, defaultValue) => {
   let currObject = object;
   let result;
-  path.forEach((item)=> {
-    if(currObject[item]) {
+  path.forEach((item) => {
+    if (currObject[item]) {
       currObject = currObject[item];
       result = currObject;
     } else {
@@ -37,10 +37,16 @@ _.get = (object,path,defaultValue) => {
     }
   });
   return result;
-}
+};
 
- console.log(_.get(object,['rooms','0','Billiards Room','cluesFound'],'i am default value'));
+console.log(
+  _.get(
+    object,
+    ['rooms', '0', 'Billiards Room', 'cluesFound'],
+    'i am default value'
+  )
+);
 
- console.log(_.get(test1,['suspectss','2','name']));
+console.log(_.get(test1, ['suspectss', '2', 'name']));
 
- console.log(_.get(test1,['suspectss']))
+console.log(_.get(test1, ['suspectss']));
