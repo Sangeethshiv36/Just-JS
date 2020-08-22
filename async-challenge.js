@@ -55,11 +55,7 @@ function limitedRepeat() {
 
   let inte = setInterval(logl, 1000);
 
-  function clearI() {
-    clearInterval(inte);
-  }
-
-  setTimeout(clearI, 5000);
+  setTimeout(() => clearInterval(inte), 5000);
 }
 // Uncomment the following line to check your work!
 // limitedRepeat(); // should log (every second, for 5 seconds): hi for now
@@ -69,17 +65,14 @@ function limitedRepeat() {
 function everyXsecsForYsecs(func, interval, duration) {
   // ADD CODE HERE
   const interFunc = setInterval(func, interval * 1000);
-
-  function clearInterFunc() {
-    clearInterval(interFunc);
-  }
-  setTimeout(clearInterFunc, duration * 1000);
+  setTimeout(() => clearInterval(interFunc), duration * 1000);
 }
 // Uncomment the following lines to check your work!
 function theEnd() {
   console.log('This is the end!');
 }
-//everyXsecsForYsecs(theEnd, 2, 20); // should invoke theEnd function every 2 seconds, for 20 seconds): This is the end!
+everyXsecsForYsecs(theEnd, 2, 20);
+// should invoke theEnd function every 2 seconds, for 20 seconds): This is the end!
 
 /* CHALLENGE 7 */
 
@@ -89,10 +82,7 @@ function delayCounter(target, wait) {
     const myInter = setInterval(() => {
       console.log(++count);
     }, wait);
-    function clearInt() {
-      clearInterval(myInter);
-    }
-    setTimeout(clearInt, target * wait);
+    setTimeout(() => clearInterval(myInter), target * wait);
   };
 }
 
@@ -121,21 +111,39 @@ createPromise.then((val) => console.log(val));
 
 /* CHALLENGE 9 */
 
+/* CHALLENGE 9 */
+
 class SecondClock {
   constructor(cb) {
     // ADD CODE HERE
+    this.cb = cb;
+    this.timer = 0;
   }
   // ADD METHODS HERE
+  start = () => {
+    const IntCl = setInterval(
+      () => this.cb((this.timer = this.timer + 1)),
+      1000
+    );
+    return IntCl;
+  };
+
+  reset = (resCl) => {
+    this.timer = 0;
+    clearInterval(resCl);
+  };
 }
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
-// const clock = new SecondClock((val) => { console.log(val) });
-// console.log("Started Clock.");
-// clock.start();
-// setTimeout(() => {
-//     clock.reset();
-//     console.log("Stopped Clock after 6 seconds.");
-// }, 6000);
+const clock = new SecondClock((val) => {
+  console.log(val);
+});
+console.log('Started Clock.');
+const startC = clock.start();
+setTimeout(() => {
+  clock.reset(startC);
+  console.log('Stopped Clock after 6 seconds.');
+}, 6000);
 
 /* CHALLENGE 10 */
 
