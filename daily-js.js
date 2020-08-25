@@ -12,7 +12,8 @@ for (let i = 0; i < 5; i++) {
 
 //------------------------------------------------------------------------------//
 
-// immutability
+// immutability - js pass variables by reference , so when you make changes it also makes changes to the original object.  So to achieve immutability always clone your objs
+// or arrays. And make changes to the copy obj and return it, to easily clone obj or arr use rest or spread operator.
 
 const user = {
   firstName: 'sangeeth',
@@ -28,7 +29,7 @@ const changeName = (obj) => {
 
 console.log(changeName(user)); // { firstName: 'guts', lastName: 'keyonashi', alias: 'berzerk' }
 
-console.log(user); // { firstName: 'guts', lastName: 'keyonashi', alias: 'berzerk' }
+console.log(user); // { firstName: 'guts', lastName: 'keyonashi', alias: 'berzerk' } //original obj got changed
 
 const user1 = {
   firstName: 'sangeeth',
@@ -37,6 +38,7 @@ const user1 = {
 };
 
 const immutatbleChangeName = (obj) => {
+  //can also do {...obj} in params
   // const copy = {...obj}
   // copy.firstName = 'guts'
   // copy.lastName = 'keyonashi';
@@ -48,4 +50,4 @@ const immutatbleChangeName = (obj) => {
 };
 
 console.log(immutatbleChangeName(user1)); // { firstName: 'guts', lastName: 'keyonashi', alias: 'berzerk' }
-console.log(user1); // { firstName: 'sangeeth', lastName: 'sivan', alias: 'berzerk' }
+console.log(user1); // { firstName: 'sangeeth', lastName: 'sivan', alias: 'berzerk' } // original object is untouched
