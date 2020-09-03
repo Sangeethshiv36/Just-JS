@@ -1,0 +1,12 @@
+const getNthFib = (n) => {
+  let sum;
+  if (n === 1) {
+    return 0;
+  } else if (n === 2) {
+    return 1;
+  } else {
+    return getNthFib(n - 1) + getNthFib(n - 2);
+  }
+};
+
+console.log(getNthFib(7));
