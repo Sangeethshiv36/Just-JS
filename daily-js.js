@@ -51,3 +51,5 @@ const immutatbleChangeName = (obj) => {
 
 console.log(immutatbleChangeName(user1)); // { firstName: 'guts', lastName: 'keyonashi', alias: 'berzerk' }
 console.log(user1); // { firstName: 'sangeeth', lastName: 'sivan', alias: 'berzerk' } // original object is untouched
+
+// TODO: ALot more.
