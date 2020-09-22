@@ -52,4 +52,24 @@ const immutatbleChangeName = (obj) => {
 console.log(immutatbleChangeName(user1)); // { firstName: 'guts', lastName: 'keyonashi', alias: 'berzerk' }
 console.log(user1); // { firstName: 'sangeeth', lastName: 'sivan', alias: 'berzerk' } // original object is untouched
 
+//shallow copy vs deep copy
+
+const obj = { names: { myname: 'sangeeth' } };
+
+const shallowCopyObj = { ...obj };
+
+shallowCopyObj.names.myname = 'Sivan';
+
+console.log(obj);
+console.log(shallowCopyObj);
+
+const obj1 = { names: { myname: 'sangeeth' } };
+
+const deepCopyObj = JSON.parse(JSON.stringify(obj1));
+
+deepCopyObj.names.myname = 'Sivan';
+
+console.log(obj1);
+console.log(deepCopyObj);
+
 // TODO: ALot more.
