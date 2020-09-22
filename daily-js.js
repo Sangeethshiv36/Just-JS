@@ -67,6 +67,8 @@ console.log(shallowCopyObj.names.myname); //Sivan
 
 //Deep Copy using stringify - Here, you have to consider that you will not be able to copy custom class instances, so you can only use it when you copy objects with native JavaScript values inside.
 
+// NOTE: In Angular, the component re-renders only if the deeply nested objects are changed as well. So shallow copying object wont do it. So create a new object and deep clone to make the comp re render.
+
 const obj1 = { names: { myname: 'sangeeth' } };
 
 const deepCopyObj = JSON.parse(JSON.stringify(obj1));
