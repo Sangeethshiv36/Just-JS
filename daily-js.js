@@ -76,4 +76,6 @@ deepCopyObj.names.myname = 'Sivan';
 console.log(obj1.names.myname); //sangeeth
 console.log(deepCopyObj.names.myname); //Sivan
 
+//we can also use lodash to deep clone an object.
+
 // TODO: ALot more.
