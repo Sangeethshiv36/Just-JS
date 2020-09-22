@@ -54,14 +54,18 @@ console.log(user1); // { firstName: 'sangeeth', lastName: 'sivan', alias: 'berze
 
 //shallow copy vs deep copy
 
+/*When you have a nested object (or array) and you copy it, nested objects inside that object will not be copied, since they are only pointers / references. Therefore, if you change the nested object, you will change it for both instances, meaning you would end up doing a shallow copy again.*/
+
 const obj = { names: { myname: 'sangeeth' } };
 
 const shallowCopyObj = { ...obj };
 
 shallowCopyObj.names.myname = 'Sivan';
 
-console.log(obj);
-console.log(shallowCopyObj);
+console.log(obj.names.myname); //Sivan
+console.log(shallowCopyObj.names.myname); //Sivan
+
+//Deep Copy using stringify - Here, you have to consider that you will not be able to copy custom class instances, so you can only use it when you copy objects with native JavaScript values inside.
 
 const obj1 = { names: { myname: 'sangeeth' } };
 
@@ -69,7 +73,7 @@ const deepCopyObj = JSON.parse(JSON.stringify(obj1));
 
 deepCopyObj.names.myname = 'Sivan';
 
-console.log(obj1);
-console.log(deepCopyObj);
+console.log(obj1.names.myname); //sangeeth
+console.log(deepCopyObj.names.myname); //Sivan
 
 // TODO: ALot more.
