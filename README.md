@@ -9,3 +9,5 @@ almost all the lodash-xx function i implemented are HOF, except for defaults and
 Still a few more challenges to go
 
 You can't return/break out of forEach loop, since the callback function is getting applied to all the elelments of an array.
+
+TODO: ES2020 Stuffs
