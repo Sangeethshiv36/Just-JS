@@ -1,6 +1,6 @@
 /* lodash _.invert function.
 example:
-invert({'name':'Sangeeth Sivan','age':25,''has pet':true})
+invert({'name':'Sangeeth Sivan','age':25,'has pet':true})
 returns: {'Sangeeth Sivan':'name','25':'age,'true':'has pet}
 */
 
@@ -22,4 +22,6 @@ _.invert = (obj) => {
   return result;
 };
 
-_.invert({ name: 'Sangeeth Sivan', age: 25, 'has pet': true });
+const output = _.invert({ name: 'Sangeeth Sivan', age: 25, 'has pet': true });
+
+console.log(Object.entries(output));
