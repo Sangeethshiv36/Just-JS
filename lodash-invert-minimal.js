@@ -24,4 +24,4 @@ _.invert = (obj) => {
 
 const output = _.invert({ name: 'Sangeeth Sivan', age: 25, 'has pet': true });
 
-console.log(Object.entries(output));
+console.log(output);
