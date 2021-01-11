@@ -3,7 +3,7 @@
 function varScope() {
   glob = 10;
   var loca = 20;
-  console.log("variables created");
+  console.log('variables created');
 }
 
 varScope(); // Execute the function to actually create those variables or use IIFE
@@ -73,7 +73,7 @@ var hoisted;
 
 console.log(fnHoisted()); // HOISTED !
 function fnHoisted() {
-  return "HOISTED !";
+  return 'HOISTED !';
 }
 
 /* For block scoped variable like let it still gets hoisted but when we try to refernece it before the varaible gets declared we get ReferenceError*/
@@ -90,22 +90,20 @@ console.log(constablock); // same error
 const constablock = 10; // const variables should always be initialized
 
 console.log(constFnDec()); //same error
-const constFnDec = () => {
-
-}
+const constFnDec = () => {};
 
 /* const vs let : Unlike let , once you have assigned a value to const you can't reassign it to a new value */
 
 let name = 'Sangeeth';
-const handle = 'berzerk36'
+const handle = 'berzerk36';
 
 name = 'Sangeeth Sivan';
 handle = 'newBerz'; // Error : Assignment to constant varibale.
 
 /* Example 3 - using objects in const*/
 const person = {
-	name: 'Sangeeth';
-}
+  name: 'Sangeeth'
+};
 
 // What i can do
 person.name = 'Sangeeth sivan'; // Because in here i am only changing the property of the const object and not the value of the const variable itself.
