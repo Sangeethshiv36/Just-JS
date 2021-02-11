@@ -81,3 +81,17 @@ console.log(deepCopyObj.names.myname); //Sivan
 //we can also use lodash to deep clone an object.
 
 // TODO: ALot more.
+
+const csvArr = ['Ford,F10,1997,brand new', 'Benz,C35,2018,used'];
+
+const arrToObj = (arr) => {
+  let resultArr = [];
+  arr.map((data) => {
+    const [name, model, year, status] = data.split(',');
+    const obj = { name, model, year, status };
+    resultArr.push(obj);
+  });
+  return resultArr;
+};
+
+console.log(arrToObj(csvArr));
